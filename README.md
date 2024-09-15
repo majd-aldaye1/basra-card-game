@@ -25,10 +25,9 @@ The Basra card game is a traditional two-player game where the goal is to captur
    - 10 points for a Basra (clearing the table with a non-Jack card).
 5. **Game End**: The game ends when all cards have been played, and the player with the highest score wins.
 
-## Screenshots
+## Screenshot of the Basra game interface
 
-![Basra Card Game](screenshot.png)  
-*Screenshot of the Basra game interface.*
+![Basra Card Game](https://github.com/majd-aldaye1/basra-card-game/blob/main/game_interface.png) 
 
 ## Built With
 
@@ -36,14 +35,3 @@ This project was built using the following technologies:
 
 - **Python** - The main programming language.
 - **Pygame** - A set of Python modules designed for writing video games.
-
-## Getting Started
-
-To get a local copy up and running, follow these simple steps.
-
-### Prerequisites
-
-Before you begin, ensure you have Python 3.x installed on your machine. You will also need to install the Pygame library. You can install it using pip:
-
-```bash
-pip install pygame
