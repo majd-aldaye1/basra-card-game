@@ -28,11 +28,11 @@ A 2-player **Basra** card game implemented in **Python + Pygame**, featuring cla
 - **Pygame** (rendering + input + game loop)
 
 ## Architecture
-- `basra.py` — core game engine (turns, capture logic, Basra bonus, dealing rounds, end-game scoring) :contentReference[oaicite:0]{index=0}
-- `card.py` — `Card` + `Deck` (deck creation, shuffle, deal hand/ground, initial-table Jack handling) :contentReference[oaicite:1]{index=1}
-- `player.py` — `Player` state (hand, captured pile, scoring rules) :contentReference[oaicite:2]{index=2}
-- `gui.py` — Pygame UI (draw hands/table, detect card clicks, drive game loop) :contentReference[oaicite:3]{index=3}
-- `main.py` — terminal/CLI gameplay loop (prints state, plays by index input) :contentReference[oaicite:4]{index=4}
+- `basra.py` — core game engine (turns, capture logic, Basra bonus, dealing rounds, end-game scoring) 
+- `card.py` — `Card` + `Deck` (deck creation, shuffle, deal hand/ground, initial-table Jack handling)
+- `player.py` — `Player` state (hand, captured pile, scoring rules)
+- `gui.py` — Pygame UI (draw hands/table, detect card clicks, drive game loop)
+- `main.py` — terminal/CLI gameplay loop (prints state, plays by index input)
 - `Playing-cards/` — card image assets (PNG deck) *(used by the GUI)*
 
 ## Getting Started
