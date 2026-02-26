@@ -1,37 +1,66 @@
 # Basra Card Game
 
-Basra is a popular card game in the Middle East, particularly in Egypt and Turkey. This project is a digital version of the Basra card game implemented using Python and Pygame, allowing two players to play against each other.
+A 2-player **Basra** card game implemented in **Python + Pygame**, featuring classic capture rules, scoring, and a simple clickable GUI.
 
+## Demo
+- Screenshot:
+  ![Basra Card Game UI](game_interface.png)
 
-## About the Project
+## Features
+- **Two-player local** gameplay (Player 1 bottom, Player 2 top) with turn switching
+- **Capture rules**
+  - **Match capture**: capture any table cards with the same value as the played card
+  - **Sum capture** (numeric cards): captures combinations of table cards whose values sum to the played card
+  - **Jack capture**: Jack captures **all** cards on the table
+- **Basra**: +10 points for clearing the table with a **non-Jack** capture
+- **Scoring**
+  - +1 per **Ace** or **Jack**
+  - +2 for **2 of Clubs**
+  - +3 for **10 of Diamonds**
+  - +3 bonus for capturing **27+ cards**
+- Auto dealing:
+  - 4 cards per player + 4 on table at start
+  - Ensures the initial table cards don’t include a Jack
+- Includes a **terminal version** (play by entering card indices)
 
-The Basra card game is a traditional two-player game where the goal is to capture cards from the table that match the value of a card played from your hand. This project allows you to play Basra on your computer with a simple graphical interface built using Pygame.
+## Tech Stack
+- **Python**
+- **Pygame** (rendering + input + game loop)
 
-## Gameplay
+## Architecture
+- `basra.py` — core game engine (turns, capture logic, Basra bonus, dealing rounds, end-game scoring) :contentReference[oaicite:0]{index=0}
+- `card.py` — `Card` + `Deck` (deck creation, shuffle, deal hand/ground, initial-table Jack handling) :contentReference[oaicite:1]{index=1}
+- `player.py` — `Player` state (hand, captured pile, scoring rules) :contentReference[oaicite:2]{index=2}
+- `gui.py` — Pygame UI (draw hands/table, detect card clicks, drive game loop) :contentReference[oaicite:3]{index=3}
+- `main.py` — terminal/CLI gameplay loop (prints state, plays by index input) :contentReference[oaicite:4]{index=4}
+- `Playing-cards/` — card image assets (PNG deck) *(used by the GUI)*
 
-### Game Rules
+## Getting Started
 
-1. **Objective**: The objective of Basra is to capture cards from the table and accumulate the highest score.
-2. **Setup**: The game is played with a standard 52-card deck. At the start, four cards are dealt to each player, and four cards are placed face-up on the table.
-3. **Playing a Card**: On their turn, a player plays a card from their hand. The card can capture:
-   - **Matching Cards**: Any card on the table that matches the value of the played card.
-   - **Sum Combinations**: A combination of cards on the table that add up to the value of the played card.
-   - **Jacks**: The Jack card captures all cards currently on the table.
-4. **Scoring**: Points are awarded based on captured cards:
-   - 1 point per Jack or Ace.
-   - 2 points for the 2 of Clubs.
-   - 3 points for the 10 of Diamonds.
-   - 3 bonus points if a player captures 27 or more cards.
-   - 10 points for a Basra (clearing the table with a non-Jack card).
-5. **Game End**: The game ends when all cards have been played, and the player with the highest score wins.
+### Prerequisites
+- Python 3.x
+- Pygame
 
-## Screenshot of the Basra game interface
+### Install & Run (GUI)
+```bash
+# create venv (optional)
+python -m venv .venv
+source .venv/bin/activate  # macOS/Linux
+# .venv\Scripts\activate   # Windows
 
-![Basra Card Game](https://github.com/majd-aldaye1/basra-card-game/blob/main/game_interface.png) 
+# install deps
+pip install pygame
 
-## Built With
+# run the Pygame UI
+python gui.py
+```
+### Run (Terminal Mode)
+```bash
+python main.py
+```
 
-This project was built using the following technologies:
-
-- **Python** - The main programming language.
-- **Pygame** - A set of Python modules designed for writing video games.
+## Notes on assets
+The GUI loads card images from a folder path in gui.py (currently cards_png/...).
+If your repo stores images under Playing-cards/ instead, either:
+- rename/move the folder to match cards_png/, or
+- update the image load path in gui.py to point to your assets directory.
